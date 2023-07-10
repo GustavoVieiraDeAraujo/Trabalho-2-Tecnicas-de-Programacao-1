@@ -1,5 +1,4 @@
 #include <iostream>
-#include <stdlib.h>
 #include "./autenticacao.h"
 #include <limits>
 void ApresentacaoAutenticacao::set_servico_autenticacao(InterfaceServicoAutenticacao *servico_autenticacao){

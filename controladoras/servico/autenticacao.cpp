@@ -1,4 +1,3 @@
-#include <iostream>
 #include "./autenticacao.h"
 #include "../../acesso_db.h"
 
