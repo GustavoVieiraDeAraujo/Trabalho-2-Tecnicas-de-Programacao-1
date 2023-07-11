@@ -1,5 +1,6 @@
 #include <iostream>
 #include "./teste.h"
+#include "../servico/teste.h"
 #include <limits>
 #include <list>
 
@@ -62,13 +63,26 @@ bool ApresentacaoTeste::executar(Matricula matricula)
 
 void ApresentacaoTeste::listar_testes(Matricula matricula)
 {
+    ServicoTeste servico;
+    list<Teste> testes = servico.listar_testes(matricula);
 
     cout << "-------------------------Lista de Testes-------------------------" << endl;
-    /*
-    for(teste = testes.begin(); teste!= testes.end(); ++teste) {
-        retornar_teste(*teste);
+
+    if (testes.empty()) {
+        cout << "Nenhum teste encontrado." << endl;
+    } else {
+        int i = 1;
+        for (list<Teste>::iterator it = testes.begin(); it != testes.end(); ++it) {
+            cout << i << ". " << endl;
+            cout << "   Codigo : " << it->get_codigo().get_valor_dominio() << endl;
+            cout << "   Nome   : " << it->get_nome().get_valor_dominio() << endl;
+            cout << "   Classe : " << it->get_classe().get_valor_dominio() << endl;
+            cout << "-------------------------------------------------------------" << endl;
+            i++;
+        }
+        cout << "Total: " << testes.size() << " teste(s)." << endl;
     }
-    */
+
     cout << "Digite algo para retornar" << endl;
     getchar();
     cin.ignore(numeric_limits<streamsize>::max(), '\n');

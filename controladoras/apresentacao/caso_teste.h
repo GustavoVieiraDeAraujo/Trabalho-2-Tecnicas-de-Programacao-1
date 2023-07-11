@@ -10,6 +10,7 @@ class ApresentacaoCasoTeste:public InterfaceApresentacaoCasoTeste{
         void deletar_caso_teste();
         void retornar_caso_teste();
         void atualizar_caso_teste();
+        void listar_casos_teste();
         InterfaceServicoCasoTeste *servicos_caso_teste;
     public:
         bool executar(Matricula) override;

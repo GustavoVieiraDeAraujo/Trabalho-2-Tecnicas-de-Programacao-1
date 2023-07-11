@@ -24,4 +24,8 @@ bool ServicoCasoTeste::deletar_caso_teste(Codigo codigo) {
     return deletar_caso_teste.executar();
 }
 
-
+list<CasoTeste> ServicoCasoTeste::listar_casos_teste(Codigo codigo_teste) {
+    ComandoPesquisarCasosTesteDoTeste pesquisar(codigo_teste);
+    pesquisar.executar();
+    return pesquisar.get_resultado();
+}

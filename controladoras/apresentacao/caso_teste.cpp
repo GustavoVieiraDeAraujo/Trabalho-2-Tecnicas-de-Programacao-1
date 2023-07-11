@@ -1,6 +1,8 @@
 #include <iostream>
 #include "./caso_teste.h"
+#include "../servico/caso_teste.h"
 #include <limits>
+#include <list>
 
 void ApresentacaoCasoTeste::set_servico_caso_teste(InterfaceServicoCasoTeste *servicos_caso_teste){
     this->servicos_caso_teste = servicos_caso_teste;
@@ -35,6 +37,9 @@ bool ApresentacaoCasoTeste::executar(Matricula matricula) {
          switch(campo){
             case 1:
                 criar_caso_teste();
+                break;
+            case 2:
+                listar_casos_teste();
                 break;
             case 3:
                 retornar_caso_teste();
@@ -325,3 +330,53 @@ void ApresentacaoCasoTeste::atualizar_caso_teste() {
     getchar();
     cin.ignore(numeric_limits<streamsize>::max(),'\n');
 };
+
+void ApresentacaoCasoTeste::listar_casos_teste() {
+    int campo;
+    string campo1;
+    Codigo codigo_teste;
+    char texto1[] = "Codigo em formato incorreto. Digite algo.";
+
+    bool apresentar = true;
+    while(apresentar){
+        cout << "Digite o codigo do teste para listar seus casos:" << endl;
+        getline(cin, campo1);
+        try {
+            codigo_teste.set_valor_dominio(campo1);
+            apresentar = false;
+        } catch(invalid_argument &exp) {
+            cout << texto1 << endl;
+            cout << "1 - Para tentar novamente." << endl;
+            cout << "2 - Para retornar." << endl;
+            campo = getchar() - 48;
+            cin.ignore(numeric_limits<streamsize>::max(),'\n');
+            if (campo == 2)
+                return;
+        }
+    }
+
+    ServicoCasoTeste servico;
+    list<CasoTeste> casos = servico.listar_casos_teste(codigo_teste);
+
+    cout << "-------------------Casos de Teste-------------------" << endl;
+
+    if (casos.empty()) {
+        cout << "Nenhum caso de teste encontrado." << endl;
+    } else {
+        int i = 1;
+        for (list<CasoTeste>::iterator it = casos.begin(); it != casos.end(); ++it) {
+            cout << i << ". " << endl;
+            cout << "   Codigo    : " << it->get_codigo().get_valor_dominio() << endl;
+            cout << "   Nome      : " << it->get_nome().get_valor_dominio() << endl;
+            cout << "   Data      : " << it->get_data().get_valor_dominio() << endl;
+            cout << "   Resultado : " << it->get_resultado().get_valor_dominio() << endl;
+            cout << "----------------------------------------------------" << endl;
+            i++;
+        }
+        cout << "Total: " << casos.size() << " caso(s) de teste." << endl;
+    }
+
+    cout << "Digite algo para retornar." << endl;
+    getchar();
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+}
