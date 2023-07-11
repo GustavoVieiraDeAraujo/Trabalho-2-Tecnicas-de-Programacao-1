@@ -86,7 +86,7 @@ void ApresentacaoTeste::deletar_teste(Matricula matricula)
     bool apresentar = true;
     while (apresentar)
     {
-        cout << "Digite o codigo do caso de teste :" << endl;
+        cout << "Digite o codigo do teste :" << endl;
         getline(cin, campo1);
         try
         {
@@ -123,7 +123,7 @@ void ApresentacaoTeste::deletar_teste(Matricula matricula)
 
     codigo.set_valor_dominio(campo1);
 
-    cout << "Tem certeza que deseja excluir esse caso de teste?" << endl;
+    cout << "Tem certeza que deseja excluir esse teste?" << endl;
     cout << "1 - Sim, quero excluir." << endl;
     cout << "2 - Nao quero excluir, retornar." << endl;
     campo = getchar() - 48;
@@ -136,7 +136,7 @@ void ApresentacaoTeste::deletar_teste(Matricula matricula)
     }
     if (servicos_teste->deletar_teste(codigo))
     {
-        cout << "Caso de Teste removido com sucesso" << endl;
+        cout << "Teste removido com sucesso" << endl;
         cout << "Digite algo para retornar." << endl;
         getchar();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');

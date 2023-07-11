@@ -195,11 +195,13 @@ void ApresentacaoCasoTeste::retornar_caso_teste() {
     char texto1[] = "Codigo em formato incorreto. Digite algo.";
 
     bool apresentar = true;
+    CasoTeste caso_teste;
     while(apresentar){
         cout << "Digite o codigo do caso de teste :" <<  endl;
         getline(cin, campo1);
         try {
             codigo.set_valor_dominio(campo1);
+            caso_teste = servicos_caso_teste->retornar_caso_teste(codigo);
             apresentar = false;
         } catch(invalid_argument &exp) {
             cout << texto1 << endl;
@@ -211,10 +213,6 @@ void ApresentacaoCasoTeste::retornar_caso_teste() {
                 return;
         }
     }
-
-
-    CasoTeste caso_teste;
-    caso_teste = servicos_caso_teste->retornar_caso_teste(codigo);
 
     cout << "DADOS DO CASO TESTE" << endl;
     cout << "Codigo      : " << caso_teste.get_codigo().get_valor_dominio() << endl;
@@ -244,10 +242,11 @@ void ApresentacaoCasoTeste::atualizar_caso_teste() {
     char texto1[] = "Codigo em formato incorreto. Digite algo.";
     bool apresentar_codigo = true;
     while(apresentar_codigo){
-        cout << "Digite o codigo do teste :" <<  endl;
+        cout << "Digite o codigo do caso de teste :" <<  endl;
         getline(cin, campo0);
         try {
             codigo.set_valor_dominio(campo0);
+            caso_teste = servicos_caso_teste->retornar_caso_teste(codigo);
             apresentar_codigo = false;
         } catch(invalid_argument &exp) {
             cout << texto1 << endl;
@@ -260,9 +259,6 @@ void ApresentacaoCasoTeste::atualizar_caso_teste() {
         }
 
     }
-
-
-    caso_teste = servicos_caso_teste->retornar_caso_teste(codigo);
 
     int campo;
     string campo1, campo2, campo3, campo4, campo5;
@@ -327,4 +323,5 @@ void ApresentacaoCasoTeste::atualizar_caso_teste() {
         cout << "Falha na atualizacao dos dados!" << endl;
     cout << "Digite algo para retornar." << endl;
     getchar();
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
 };

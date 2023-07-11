@@ -1,5 +1,6 @@
 #include "acesso_db.h"
 #include <iostream>
+#include <stdexcept>
 
 //--------------------------------- CONFIGURAÇÃO --------------------------------------
 
@@ -130,28 +131,28 @@ Teste ComandoPesquisarTeste::get_resultado() {
 
     // Remover codigo;
     if (lista_resultado.empty())
-        throw "not found";
+        throw invalid_argument("Registro nao encontrado.");
     resultado = lista_resultado.back();
     lista_resultado.pop_back();
     codigo.set_valor_dominio(resultado.get_valor_coluna());
 
     // Remover nome;
     if (lista_resultado.empty())
-        throw "not found";
+        throw invalid_argument("Registro nao encontrado.");
     resultado = lista_resultado.back();
     lista_resultado.pop_back();
     nome.set_valor_dominio(resultado.get_valor_coluna());
 
     // Remover classe;
     if (lista_resultado.empty())
-        throw "not found";
+        throw invalid_argument("Registro nao encontrado.");
     resultado = lista_resultado.back();
     lista_resultado.pop_back();
     classe.set_valor_dominio(resultado.get_valor_coluna());
 
     // Remover matricula criador;
     if (lista_resultado.empty())
-        throw "not found";
+        throw invalid_argument("Registro nao encontrado.");
     resultado = lista_resultado.back();
     lista_resultado.pop_back();
     matricula_criador.set_valor_dominio(resultado.get_valor_coluna());
@@ -159,6 +160,7 @@ Teste ComandoPesquisarTeste::get_resultado() {
     teste.set_nome(nome);
     teste.set_codigo(codigo);
     teste.set_classe(classe);
+    teste.set_matricula_criador(matricula_criador);
 
     return teste;
 };
@@ -184,49 +186,49 @@ CasoTeste ComandoPesquisarCasoTeste::get_resultado() {
     CasoTeste caso_teste;
     // Remover codigo;
     if (lista_resultado.empty())
-        throw "not found";
+        throw invalid_argument("Registro nao encontrado.");
     resultado = lista_resultado.back();
     lista_resultado.pop_back();
     codigo.set_valor_dominio(resultado.get_valor_coluna());
 
     // Remover data;
     if (lista_resultado.empty())
-        throw "not found";
+        throw invalid_argument("Registro nao encontrado.");
     resultado = lista_resultado.back();
     lista_resultado.pop_back();
     data.set_valor_dominio(resultado.get_valor_coluna());
 
     // Remover nome;
     if (lista_resultado.empty())
-        throw "not found";
+        throw invalid_argument("Registro nao encontrado.");
     resultado = lista_resultado.back();
     lista_resultado.pop_back();
     nome.set_valor_dominio(resultado.get_valor_coluna());
 
     // Remover acao;
     if (lista_resultado.empty())
-        throw "not found";
+        throw invalid_argument("Registro nao encontrado.");
     resultado = lista_resultado.back();
     lista_resultado.pop_back();
     acao.set_valor_dominio(resultado.get_valor_coluna());
 
     // Remover resposta;
     if (lista_resultado.empty())
-        throw "not found";
+        throw invalid_argument("Registro nao encontrado.");
     resultado = lista_resultado.back();
     lista_resultado.pop_back();
     resposta.set_valor_dominio(resultado.get_valor_coluna());
 
     // Remover resultado;
     if (lista_resultado.empty())
-        throw "not found";
+        throw invalid_argument("Registro nao encontrado.");
     resultado = lista_resultado.back();
     lista_resultado.pop_back();
     resultado_caso_teste.set_valor_dominio(resultado.get_valor_coluna());
 
     // Remover caso de teste associado;
     if (lista_resultado.empty())
-        throw "not found";
+        throw invalid_argument("Registro nao encontrado.");
     resultado = lista_resultado.back();
     lista_resultado.pop_back();
     codigo_teste_associado.set_valor_dominio(resultado.get_valor_coluna());
@@ -238,6 +240,7 @@ CasoTeste ComandoPesquisarCasoTeste::get_resultado() {
     caso_teste.set_codigo(codigo);
     caso_teste.set_resposta(resposta);
     caso_teste.set_resultado(resultado_caso_teste);
+    caso_teste.set_codigo_teste_associado(codigo_teste_associado);
 
     return caso_teste;
 };
@@ -260,7 +263,7 @@ Desenvolvedor ComandoPesquisarDesenvolvedor::get_resultado() {
 
     // Remover matricula;
     if (lista_resultado.empty())
-        throw "not found";
+        throw invalid_argument("Registro nao encontrado.");
     resultado = lista_resultado.back();
     lista_resultado.pop_back();
     matricula.set_valor_dominio(resultado.get_valor_coluna());
@@ -268,7 +271,7 @@ Desenvolvedor ComandoPesquisarDesenvolvedor::get_resultado() {
 
     // Remover nome;
     if (lista_resultado.empty())
-        throw "not found";
+        throw invalid_argument("Registro nao encontrado.");
     resultado = lista_resultado.back();
     lista_resultado.pop_back();
     nome.set_valor_dominio(resultado.get_valor_coluna());
@@ -276,7 +279,7 @@ Desenvolvedor ComandoPesquisarDesenvolvedor::get_resultado() {
 
     // Remover senha;
     if (lista_resultado.empty())
-        throw "not found";
+        throw invalid_argument("Registro nao encontrado.");
     resultado = lista_resultado.back();
     lista_resultado.pop_back();
     senha.set_valor_dominio(resultado.get_valor_coluna());
@@ -284,7 +287,7 @@ Desenvolvedor ComandoPesquisarDesenvolvedor::get_resultado() {
 
     // Remover telefone;
     if (lista_resultado.empty())
-        throw "not found";
+        throw invalid_argument("Registro nao encontrado.");
     resultado = lista_resultado.back();
     lista_resultado.pop_back();
     telefone.set_valor_dominio(resultado.get_valor_coluna());
