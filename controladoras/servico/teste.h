@@ -1,4 +1,4 @@
-#include "../../interfaces.h"
+#include "../../bibliotecas/interfaces.h"
 #include "../../bibliotecas/dominios.h"
 #include "../../bibliotecas/entidades.h"
 #include <iostream>

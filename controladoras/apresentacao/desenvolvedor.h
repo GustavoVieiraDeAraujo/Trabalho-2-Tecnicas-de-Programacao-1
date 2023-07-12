@@ -1,7 +1,7 @@
 #ifndef CONTROLADORA_DESENVOLVEDOR_H_INCLUDED
 #define CONTROLADORA_DESENVOLVEDOR_H_INCLUDED
 
-#include "../../interfaces.h"
+#include "../../bibliotecas/interfaces.h"
 #include "../../bibliotecas/dominios.h"
 #include "../../bibliotecas/entidades.h"
 

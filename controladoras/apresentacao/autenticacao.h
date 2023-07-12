@@ -1,7 +1,7 @@
 #ifndef CONTROLADORA_AUTENTICACAO_H_INCLUDED
 #define CONTROLADORA_AUTENTICACAO_H_INCLUDED
 
-#include "../../interfaces.h"
+#include "../../bibliotecas/interfaces.h"
 #include "../../bibliotecas/dominios.h"
 #include "../../bibliotecas/entidades.h"
 

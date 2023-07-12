@@ -1,8 +1,8 @@
 #include <list>
 #include <string>
-#include "./bibliotecas/sqlite3.h"
-#include "./bibliotecas/dominios.h"
-#include "./bibliotecas/entidades.h"
+#include "../bibliotecas/sqlite3.h"
+#include "../bibliotecas/dominios.h"
+#include "../bibliotecas/entidades.h"
 
 using namespace std;
 

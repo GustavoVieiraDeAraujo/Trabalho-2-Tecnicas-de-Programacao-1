@@ -1,15 +1,15 @@
-#include "./controladoras/apresentacao/teste.h"
-#include "./controladoras/apresentacao/controle.h"
-#include "./controladoras/apresentacao/caso_teste.h"
-#include "./controladoras/apresentacao/autenticacao.h"
-#include "./controladoras/apresentacao/desenvolvedor.h"
+#include "../controladoras/apresentacao/teste.h"
+#include "../controladoras/apresentacao/controle.h"
+#include "../controladoras/apresentacao/caso_teste.h"
+#include "../controladoras/apresentacao/autenticacao.h"
+#include "../controladoras/apresentacao/desenvolvedor.h"
 
-#include "./controladoras/servico/teste.h"
-#include "./controladoras/servico/caso_teste.h"
-#include "./controladoras/servico/autenticacao.h"
-#include "./controladoras/servico/desenvolvedor.h"
+#include "../controladoras/servico/teste.h"
+#include "../controladoras/servico/caso_teste.h"
+#include "../controladoras/servico/autenticacao.h"
+#include "../controladoras/servico/desenvolvedor.h"
 
-#include "./acesso_db.h"
+#include "../persistencia/acesso_db.h"
 
 using namespace std;
 

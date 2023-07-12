@@ -1,5 +1,5 @@
 #include "./caso_teste.h"
-#include "../../acesso_db.h"
+#include "../../persistencia/acesso_db.h"
 
 bool ServicoCasoTeste::criar_caso_teste(CasoTeste caso_teste) {
     ComandoCadastrarCasoTeste cadastrar_caso_teste(caso_teste);

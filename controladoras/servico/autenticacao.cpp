@@ -1,5 +1,5 @@
 #include "./autenticacao.h"
-#include "../../acesso_db.h"
+#include "../../persistencia/acesso_db.h"
 
 bool ServicoAutenticacao::autenticar(Matricula matricula, Senha senha)
 {
